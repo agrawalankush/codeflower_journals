@@ -1,0 +1,233 @@
+<html>
+<head>
+    <title>CodeFlower Source code visualization</title>
+<style type="text/css">
+circle.node {
+  cursor: pointer;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+circle.node.directory {
+  stroke: #9ecae1;
+  stroke-width: 2px;
+}
+
+circle.node.collapsed {
+  stroke: #555;
+}
+
+.nodetext {
+  fill: #252929;
+  font-weight: bold;
+  text-shadow: 0 0 0.2em white;
+}
+
+line.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="content">
+    <div class="container">
+    <p class="lead"></p>
+    <div id="visualization">
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="javascripts/d3/d3.js"></script>
+    <script type="text/javascript" src="javascripts/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="javascripts/d3/d3.layout.js"></script>
+    <script type="text/javascript" src="javascripts/CodeFlower.js"></script>
+    <script type="text/javascript" src="javascripts/dataConverter.js"></script>
+<script type="text/javascript">
+var jsonData = {
+ "name": "Domains",
+      "children": [{
+        "name": "Biology",
+        "children": [{
+          "name": "Plant Physiology",
+          "size": 68
+        }, {
+          "name": "Marine Biology",
+          "size": 52
+        },
+		{
+          "name": "Zoology",
+          "size": 54
+        },
+		{
+          "name": "Environmental Contamination",
+          "size": 23
+        },
+		{
+          "name": "Biological Conservation",
+          "size": 41
+        },
+		{
+          "name": "Pest Management Science",
+          "size": 23
+        },
+		{
+          "name": "Botany",
+          "size": 40
+        },
+		{
+          "name": "Comparative Animal Physiology",
+          "size": 25
+        },
+		{
+          "name": "Freshwater Biology",
+          "size": 68
+        },
+		],
+        "size": 5714
+      },{
+        "name": "Biotechnology",
+        "children": [{
+          "name": "Protein Science",
+          "size": 82
+        },
+		{
+          "name": "Food Protection",
+          "size": 24
+        }
+		,
+		{
+          "name": "Genomics & Nucleic Acids",
+          "size": 46
+        }],
+		"size":580
+	  },{
+        "name": "Medical Specialties",
+        "children": [{
+          "name": "Clinical Cancer Research",
+          "size": 139
+        },
+		{
+          "name": "Circulation",
+          "size": 170
+        }],
+		"size":580
+	  },{
+        "name": "Chemical, Mechanical, & Civil Engineering",
+        "children": [{
+          "name": "Material Science",
+          "size": 83
+        },
+		{
+          "name": "Transportation Research",
+          "size": 170
+        }],
+		"size":580
+	  },{
+        "name": "Chemistry",
+        "children": [{
+          "name": "Macromolecules & Polymers",
+          "size": 90
+        },
+		{
+          "name": "Organic Chemistry",
+          "size": 77
+        }],
+		"size":580
+	  },{
+        "name": "Brain Research",
+        "children": [{
+          "name": "Neuroscience; Molecular & Cellular",
+          "size": 102
+        },
+		{
+          "name": "Affective Disorders",
+          "size": 74
+        }],
+		"size":580
+	  },{
+        "name": "Earth Sciences",
+        "children": [{
+          "name": "Seismology",
+          "size": 40
+        },
+		{
+          "name": "Oceanography",
+          "size": 37
+        }],
+		"size":580
+	  },{
+        "name": "Humanities",
+        "children": [{
+          "name": "Classics",
+          "size": 77
+        },
+		{
+          "name": "Philosophy Psychology",
+          "size": 108
+        }],
+		"size":580
+	  },{
+        "name": "Math & Physics",
+        "children": [{
+          "name": "Nonlinear Analysis",
+          "size": 97
+        },
+		{
+          "name": "Surface Science",
+          "size": 74
+        }],
+		"size":580
+	  },{
+        "name": "Infectious Diseases",
+        "children": [{
+          "name": "Immunology",
+          "size": 103
+        },
+		{
+          "name": "Virology",
+          "size": 56
+        }],
+		"size":580
+	  },{
+        "name": "Health Professionals",
+        "children": [{
+          "name": "Occupational Health",
+          "size": 55
+        },
+		{
+          "name": "Hospital Financial Management",
+          "size": 60
+        }],
+		"size":580
+	  },{
+        "name": "Social Sciences",
+        "children": [{
+          "name": "Finance",
+          "size": 103
+        },
+		{
+          "name": "Law",
+          "size": 79
+        }],
+		"size":580
+	  },{
+        "name": "Electrical Engineering & Computer Science",
+        "children": [{
+          "name": "Data Mining",
+          "size": 318
+        },
+		{
+          "name": "Signal Processing",
+          "size": 316
+        }],
+		"size":580
+	  }
+	  ],
+      "size": 5840
+    
+  
+};
+        var myFlower = new CodeFlower("#visualization", 600, 400);
+        myFlower.update(jsonData);
+    </script>
