@@ -17,7 +17,7 @@ var CodeFlower = function(selector, w, h) {
   this.force = d3.layout.force()
     .on("tick", this.tick.bind(this))
     .charge(function(d) { return d._children ? -d.size / 100 : -40; })
-    .linkDistance(function(d) { return d.target._children ? 160 : 25; })
+    .linkDistance(function(d) { return d.target._children ? 80 : 25; })
     .size([h, w]);
 };
 
@@ -57,7 +57,7 @@ CodeFlower.prototype.update = function(json) {
   // Exit any old links.
   this.link.exit().remove();
 
-   Update the nodes
+  // Update the nodes
   this.node = this.svg.selectAll("circle.node")
     .data(nodes, function(d) { return d.name; })
     .classed("collapsed", function(d) { return d._children ? 1 : 0; });
@@ -73,7 +73,7 @@ CodeFlower.prototype.update = function(json) {
     .style("fill", function color(d) {
       return "hsl(" + parseInt(360 / total * d.id, 10) + ",90%,70%)";
     })
-    //.call(this.force.drag)
+    .call(this.force.drag)
     .on("click", this.click.bind(this))
     .on("mouseover", this.mouseover.bind(this))
     .on("mouseout", this.mouseout.bind(this));
